@@ -1,5 +1,36 @@
 # deep-research
 
+> **Local fork — diverges from upstream `oh-rid/deep-research` (v0.2.0).**
+> All changes made 2026-07-26, each driven by something observed on a real
+> run rather than by preference:
+>
+> 1. **Models pinned:** researcher = `claude-opus-5` at `effort: high`;
+>    agy = `--model gemini-3.6-flash-high` (upstream states agy has no
+>    model flag — true for 1.0.1, false since 1.1.x); codex =
+>    `-m gpt-5.6-sol` (plain `gpt-5.6` returns HTTP 400 on ChatGPT auth).
+> 2. **Context-exfiltration guard:** both CLIs are launched with their
+>    working root in an empty scratch dir. Upstream launches them inside
+>    the worktree, where `codex -s read-only` follows the project's own
+>    `AGENTS.md`/`CLAUDE.md`, reads the files they point at, and ships
+>    them to the OpenAI API. Read-only blocks writes, not exfiltration.
+> 3. **Europe PMC leg added** (Phase 0c) — the literature index queried
+>    over REST as a non-hallucinating stream. Identifiers come from a
+>    database, so they cannot be fabricated. Doubles as a cheap mechanical
+>    gate on every identifier the LLM legs produce.
+> 4. **Citation contract on the GPT leg** — a verbatim passage beside every
+>    citation plus a self-verification pass before returning, so
+>    verification cost lands on the cheap leg, not the synthesizer.
+> 5. **Gemini leg retasked to leads only, no citation rights.** On a
+>    biomedical run it produced 1 surviving unique finding against 9
+>    rejections, 3 of them fabricated identifiers that resolve HTTP 200
+>    to unrelated papers. Its reasoning was sound; its identifiers were
+>    invented. It now supplies sub-questions, search vocabulary, predicted
+>    contradictions and blind spots.
+>
+> A no-shell clause was also added to the agy prompts: under `--sandbox`
+> headless, one attempted shell call is auto-denied and the *entire* run
+> returns empty.
+
 A Claude Code plugin for rigorous web research using **three independent LLM
 families** as cross-checkers, **worktree-sandboxed** for security, and
 **primary-source verified** via mechanical URL + passage checks.

@@ -1,7 +1,7 @@
 {
   "name": "deep-research",
-  "version": "0.2.0",
-  "description": "Deep research with 3-way LLM triangulation (Claude + Gemini via agy CLI + GPT-5 via codex CLI). Worktree-isolated, primary-source verified (mechanical URL check + passage match), defends against shared-corpus consensus hallucination.",
+  "version": "0.3.2",
+  "description": "Deep research, 4 legs: (Claude Opus 5 High synthesis + GPT-5.6 High evidence under citation contract + Europe PMC index as ground truth + Gemini 3.6 Flash High for leads only). Worktree-isolated, primary-source verified (mechanical URL check + passage match), defends against shared-corpus consensus hallucination.",
   "author": {
     "name": "oh-rid"
   },
