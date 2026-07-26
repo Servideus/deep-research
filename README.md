@@ -7,7 +7,7 @@
 > 1. **Models pinned:** researcher = `claude-opus-5` at `effort: high`;
 >    agy = `--model gemini-3.6-flash-high` (upstream states agy has no
 >    model flag — true for 1.0.1, false since 1.1.x); codex =
->    `-m gpt-5.6-sol` (plain `gpt-5.6` returns HTTP 400 on ChatGPT auth).
+>    `-m gpt-5.6-sol`.
 > 2. **Context-exfiltration guard:** both CLIs are launched with their
 >    working root in an empty scratch dir. Upstream launches them inside
 >    the worktree, where `codex -s read-only` follows the project's own
