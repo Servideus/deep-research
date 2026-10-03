@@ -1,4 +1,8 @@
+[Инструкция на русском языке здесь](README.ru.md).
+
 # deep-research
+
+The model pins, CLI configuration and verification reports below describe a historical fork snapshot. Check compatibility with your installed tools before use; this documentation update does not establish current end-to-end operation.
 
 > **Local fork — diverges from upstream `oh-rid/deep-research` (v0.2.0).**
 > All changes made 2026-07-26, each driven by something observed on a real
@@ -90,7 +94,7 @@ enable it.
 # Clone into local plugins
 mkdir -p ~/.claude/plugins/local/plugins
 cd ~/.claude/plugins/local/plugins
-git clone https://github.com/oh-rid/deep-research.git
+git clone https://github.com/Servideus/deep-research.git
 ```
 
 Restart Claude Code (or reload plugins) and `/research` becomes available.
